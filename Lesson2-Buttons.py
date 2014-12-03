@@ -31,7 +31,7 @@ frame = wx.Frame(None, wx.ID_ANY, "Happy Title")
 panel = wx.Panel(frame)
 
 #Create a button, and put it in my panel
-btnClickMe = wx.Button(panel, label="Click Me to Please Me", pos=(240,180), size=(200,200))
+btnClickMe = wx.Button(panel, label="Click Me to Please Me\nPressing Enter is Cheating.", pos=(40,30), size=(200,200))
 
 #Make the button do something!
 btnClickMe.Bind(wx.EVT_BUTTON, OnClickMe)
