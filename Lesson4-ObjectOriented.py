@@ -11,26 +11,29 @@ import wx
 # Inherits means that the CoolerFrame has everything a wx.Frame has, plus the stuff we add.
 class CoolerFrame(wx.Frame):
 	# Remember __init__ is the constructor function. It sets up or "initializes" the new CoolerFrame
-	def __init__(self, parent):
+	def __init__(self, title = "Our Frame", parent = None):
 	
 		# We still want to do all stuff that the original wx.Frame constructor does, so we call it first.
 		# Always do this.
-		wx.Frame.__init__(self, parent, wx.ID_ANY, "Our Title")
+		wx.Frame.__init__(self, parent, wx.ID_ANY, title)
 		
 		# Create a new panel that is a member of the frame
 		self.panel = wx.Panel(self) #Notice I put self in parentheses this time.
 
 		# Create a button, and put it in the panel
-		self.btnClickMe = wx.Button(self.panel, label="Click Me", pos=(20,20))
-
+		self.btnClickMe = wx.Button(self.panel, label="Click Me", pos=(100,100))
+		self.text = wx.StaticText(self.panel, label="This is THE static text. Don't click me", pos=(0,0))
 		# Make the button do something!
 		# Call self.OnClickMe instead of just OnClickMe
 		self.btnClickMe.Bind(wx.EVT_BUTTON, self.OnClickMe)
+		self.text.Bind(wx.EVT_LEFT_UP, self.OnText)
 
 	# Now the event handler is part of the class.
 	# That means it has to have self as the first argument.
 	def OnClickMe(self, e):
 		print "Yay! You clicked it."
+	def OnText(self, e):
+		print("Hey, don't click on the static text!")
 	
 
 
@@ -42,11 +45,12 @@ app = wx.App(False)
 
 # Instead of creating a normal wx.Frame we create an instance of our new class
 # It is named after me because I created it.
-joshsFrame = CoolerFrame(None) 
+joshsFrame = CoolerFrame("Our Frame") 
+myFrame = CoolerFrame("My Frame, I Will Close If You Close Our Frame", joshsFrame) # It's associated to joshsFrame
 
 # Still show the frame in the main program
 joshsFrame.Show()
-
+myFrame.Show()
 
 
 
