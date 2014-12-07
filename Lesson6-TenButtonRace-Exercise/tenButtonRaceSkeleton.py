@@ -33,11 +33,11 @@ class TenButtonFrame(wx.Frame):
 		try:
 			N = int(self.inputBox.GetValue()) # get the information from the user
 			if(N > 0):
-				btnRemaining = N; btnNum = N
+				btnRemaining = N; btnNum = N # set the buttons number
 			else:
-				btnRemaining = 0
+				btnRemaining = 0 # endless
 		except:
-			if(len(self.inputBox.GetValue()) == 0): btnRemaining = btnNum = 10
+			if(len(self.inputBox.GetValue()) == 0): btnRemaining = btnNum = 10 # default
 			else: raise ValueError("I can't understand!!\n")
 		
 		self.inputBox.Show(False)
@@ -48,9 +48,9 @@ class TenButtonFrame(wx.Frame):
 		time.clock() # the first call
 	
 	def OnCheat(self, e): # keyboard-cheat
-		#self.btn.Show(False) # so the user can't play
-		#wx.StaticText(self.panel, label = "You've cheated by pressing the keyboard. Game Over.")
-		pass
+		self.btn.Show(False) # so the user can't play
+		wx.StaticText(self.panel, label = "You've cheated by pressing the keyboard. Game Over.")
+	
 	def OnWrong(self, e): # wrong button
 		self.btn.Show(False) # so the user can't play
 		wx.StaticText(self.panel, label = "You've clicked on the wrong mouse button :(")
