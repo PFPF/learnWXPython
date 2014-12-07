@@ -29,6 +29,7 @@ class CoolerFrame(wx.Frame):
 	# And Now we write the event handlers to determine *what* happens when the buttons are clicked.
 	def OnLike(self, e):
 		self.heading.SetLabel(":)")
+		self.btnLike.Show(False)
 		self.btnMeToo.Show(True)
 	
 	def OnMeToo(self, e):
