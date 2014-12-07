@@ -13,13 +13,9 @@ import wx
 app = wx.App(False) #False means error messages will print in the normal way
 
 #Create a new frame (A frame is often casually called a window).
-window = wx.Frame(None, wx.ID_ANY, "Hello World", size = (1400,1000), pos = (1000,300), name = "dD") # None means it is top level. It has no parent frame.
+window = wx.Frame(None, wx.ID_ANY, "Hello Alien", size = (1400,1000), pos = (1000,300), name = "a name") # None means it is top level. It has no parent frame.
 
 # Show the frame.
-
-tool = window.CreateToolBar()
-tool.AddTool()
-tool.Realize()
 window.Show(True)
 #MainLoop makes the app listen for clicks, and other events.
 #This is always the last line of a wxPython app.
