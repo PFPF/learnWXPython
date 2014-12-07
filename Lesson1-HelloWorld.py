@@ -13,11 +13,10 @@ import wx
 app = wx.App(False) #False means error messages will print in the normal way
 
 #Create a new frame (A frame is often casually called a window).
-frame = wx.Frame(None, wx.ID_ANY, "Hello World") # None means it is top level. It has no parent frame.
+window = wx.Frame(None, wx.ID_ANY, "Hello Alien", size = (1400,1000), pos = (1000,300), name = "a name") # None means it is top level. It has no parent frame.
 
 # Show the frame.
-frame.Show(True)
-
+window.Show(True)
 #MainLoop makes the app listen for clicks, and other events.
 #This is always the last line of a wxPython app.
 app.MainLoop()
@@ -26,8 +25,8 @@ app.MainLoop()
 
 #1. Change the title of your Frame to something new.
 
-#2. Add the argument size = (400,100) to the frome constructor on line 16.
+#2. Add the argument size = (400,100) to the frame constructor on line 16.
 #What does it do?
 
-#3. Add the argument pos=(1000,300) to the frome constructor on line 16.
+#3. Add the argument pos=(1000,300) to the frame constructor on line 16.
 #What does it do?
