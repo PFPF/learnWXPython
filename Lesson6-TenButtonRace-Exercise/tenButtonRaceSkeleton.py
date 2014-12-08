@@ -21,7 +21,7 @@ class TenButtonFrame(wx.Frame):
 		self.prompt = wx.StaticText(self.panel, label="Your next click should be: left button") # Show the next click
 		self.start.Bind(wx.EVT_BUTTON, self.OnStart) # bind the start button's event
 		self.btn.Bind(wx.EVT_BUTTON, self.OnBTN) # bind the racing button's event
-		self.btn.Bind(wx.EVT_CHAR_HOOK, self.OnCheat) # see if the user cheats by pressing keys
+		self.btn.Bind(wx.EVT_KEY_DOWN, self.OnCheat) # see if the user cheats by pressing keys
 		
 		self.btn.Show(False) # hide the racing button 
 		self.prompt.Show(False) # hide the prompt
@@ -48,8 +48,12 @@ class TenButtonFrame(wx.Frame):
 		time.clock() # the first call
 	
 	def OnCheat(self, e): # keyboard-cheat
-		self.btn.Show(False) # so the user can't play
-		wx.StaticText(self.panel, label = "You've cheated by pressing the keyboard. Game Over.")
+		key = e.GetKeyCode()
+		if(key == 67 and e.AltDown()):
+			self.OnBTN(e)
+		else:
+			self.btn.Show(False) # so the user can't play
+			wx.StaticText(self.panel, label = "You've cheated by pressing the keyboard. Game Over.")
 	
 	def OnWrong(self, e): # wrong button
 		self.btn.Show(False) # so the user can't play
