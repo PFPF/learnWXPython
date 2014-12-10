@@ -9,7 +9,6 @@ btnNum = 0
 btnRemaining = 0
 events = {wx.EVT_BUTTON:"left", wx.EVT_RIGHT_UP:"right"} # after realized that some people don't have middle button
 def mkdir(path): # if the directory do not exist, create it
-	
 	dir = os.path.dirname(path)
 	if not os.path.exists(dir):	os.makedirs(dir)
 
@@ -45,7 +44,7 @@ class TenButtonFrame(wx.Frame):
 		import shutil
 		shutil.rmtree("/TenButtonRace/", True) # whole dir
 		self.clear.Disable()
-		self.clear.SetLabel("No Record to Clear")
+		self.clear.SetLabel("No Record to Clear!")
 	
 	def OnStart(self, e):
 		global btnRemaining, btnNum
